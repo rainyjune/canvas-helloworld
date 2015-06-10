@@ -1,0 +1,15 @@
+div {
+  position: absolute;
+  left: 50px;
+  top: 50px;
+}
+
+canvas {
+  
+}
+
+noscript {
+  background-color: yellow;
+  width: 50%;
+  margin: 10px auto;
+}
