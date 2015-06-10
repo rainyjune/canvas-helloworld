@@ -27,7 +27,7 @@ function helloApp() {
   var text = "Hello World";
 
   var helloImage = new Image();
-  helloImage.src = "html5bg.jpg";
+  helloImage.src = "//c1.staticflickr.com/1/368/18477450930_cb54a46c65_z.jpg";
   
   function loop() {
     setTimeout(loop, 20);
