@@ -28,13 +28,13 @@ function helloApp() {
 
   var helloImage = new Image();
   helloImage.src = "//c1.staticflickr.com/1/368/18477450930_cb54a46c65_z.jpg";
-  
-  function loop() {
-    setTimeout(loop, 20);
-    drawScreen();
-  }
 
-  loop();
+  //alert("typeof window.requestAnimationFrame: " + typeof window.webkitRequestAnimationFrame);
+  
+  (function animloop(){
+    requestAnimation(animloop);
+    drawScreen();
+  })();
 
   function drawScreen() {
     // Background 
@@ -65,6 +65,20 @@ function helloApp() {
     ctx.globalAlpha = alpha;
     ctx.fillStyle = "#ffffff";
     ctx.fillText(text, 150, 200);
+  }
+
+  function requestAnimation(callback) {
+    var func = window.requestAnimationFrame ||
+          window.webkitRequestAnimationFrame ||
+          window.mozRequestAnimationFrame ||
+          window.oRequestAnimationFrame ||
+          window.msRequestAnimationFrame || null;
+
+    if (func) {
+      return func(callback);
+    } else {
+      return window.setTimeout(callback, 1000 / 60);
+    }
   }
 }
 
